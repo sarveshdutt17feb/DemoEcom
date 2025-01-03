@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/products")
+@RequestMapping("/products")
 public class ProductController {
     @Autowired
     ProductService productService;
@@ -25,6 +25,7 @@ public class ProductController {
     @GetMapping("/{id}")
     public ResponseEntity getProductById(@PathVariable("id") int id){
         FakeStoreProductResponseDTO responseDTO = productService.getProductById(id);
+
         return ResponseEntity.ok(responseDTO);
     }
 
